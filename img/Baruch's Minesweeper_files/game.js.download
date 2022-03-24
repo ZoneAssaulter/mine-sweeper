@@ -17,13 +17,11 @@ var gMarkedCount = 0;
 var gScore = 0;
 var gIntreval;
 var gGameTime = 0;
-var gIsGameStart = false;
 
 function init() {
   gIsGameOn = false;
-  gIsGameStart = true;
   gLives = 3;
-  updateLife();
+  updateLife()
   gScore = 0;
   gMarkedCount = 0;
   clearInterval(gIntreval);
@@ -126,12 +124,10 @@ function renderBoard(board) {
 }
 
 function clickCell(elCell, location) {
-  if (gIsGameOn === false && gIsGameStart === true) {
+  if (gIsGameOn === false) {
     runTimer();
     gIsGameOn = true;
-    gIsGameStart = false;
   }
-  if (gIsGameOn === false && gIsGameStart === false) return;
 
   if (gBoard[location.i][location.j].isShown) return;
   if (gBoard[location.i][location.j].isMarked) return;
@@ -143,7 +139,7 @@ function clickCell(elCell, location) {
   if (gBoard[location.i][location.j].isMine) {
     if (gLives > 1) {
       gLives--;
-      updateLife();
+      updateLife()
       elCell.id = 'shown';
       gMarkedCount++;
       console.log(gMarkedCount);
@@ -154,9 +150,9 @@ function clickCell(elCell, location) {
     } else {
       elCell.id = 'shown';
       gBoard[location.i][location.j].isShown = true;
-      gLives--;
+      gLives--
       gameOver();
-      updateLife();
+      updateLife()
     }
   } else if (gBoard[location.i][location.j].minesAroundCount !== 0) {
     elCell.id = 'shown';
@@ -208,9 +204,10 @@ function markMine(event, location, elCell) {
       elCell.removeAttribute('id');
     }
   }
-  if (gMarkedCount === gMineCount) {
+  if (gMarkedCount === gMineCount){
+    clearInterval(gIntreval)
     victory();
-  }
+  } 
 }
 
 function gameOver() {
@@ -221,7 +218,7 @@ function gameOver() {
 }
 
 function victory() {
-  clearInterval(gIntreval);
+  clearInterval(gIntreval); //no matter how many times i call the clear interval it wont work, but when i do from console it does work?
   gIsGameOn = false;
   victorySmiley();
 }
@@ -253,15 +250,15 @@ function updateLife() {
       elLife3.style.visibility = 'initial';
       elLife2.style.visibility = 'initial';
       elLife1.style.visibility = 'initial';
-      break;
+      break
     case 2:
       elLife3.style.visibility = 'hidden';
-      break;
+      break
     case 1:
       elLife2.style.visibility = 'hidden';
-      break;
+      break
     case 0:
       elLife1.style.visibility = 'hidden';
-      break;
+      break
   }
 }
