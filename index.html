@@ -8,20 +8,30 @@
     <title>Baruch's Minesweeper</title>
   </head>
   <body onload="init()">
-    <div class="game-container"oncontextmenu="return false;">
+    <div class="game-container" oncontextmenu="return false;">
       <div class="timer-smiley-score">
-        <span class="timer">Timer</span>
+        <span class="timer"><span>T</span>imer</span>
         <span class="smiley" onclick="init()">🙂</span>
-        <span class="score">score:</span>
+        <span class="score"><span>S</span>core:</span>
       </div>
-      <div class="radio difficulty"></div>
-      <table>
-        <tbody class="board-container">
-
-        </tbody>
-      </table>
+      <div class="difficulty">
+        <button onclick="easyStart()"><span>E</span>asy</button
+        ><button onclick="mediumStart()"><span>M</span>edium</button
+        ><button onclick="hardStart()"><span>H</span>ard</button>
+      </div>
+      <div class="lives">
+        <span class="first-life"><img src="/img/SpiderMine.webp"></span>
+        <div class="second-life"><img src="/img/SpiderMine.webp"></div>
+        <div class="third-life"><img src="/img/SpiderMine.webp"></div>
+      </div>
+      <div class="table-container">
+        <table>
+          <tbody class="board-container"></tbody>
+        </table>
+      </div>
     </div>
   </body>
+  <audio src="sounds/menu-sound.wav" class="menu-sound"></audio>
   <audio src="sounds/vulture_bringiton.wav" class="vulture-bring-it-on"></audio>
   <audio src="sounds/minemove.wav" class="mine-move"></audio>
   <audio src="sounds/minehit.wav" class="mine-hit"></audio>

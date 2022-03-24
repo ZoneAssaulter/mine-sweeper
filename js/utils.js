@@ -55,3 +55,9 @@ function playMineHitSound() {
   }, 65);
 }
 
+function playMenuSound(){
+  var menuSound = document.querySelector('.menu-sound')
+  menuSound.play()
+}
+
+

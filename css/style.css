@@ -1,49 +1,153 @@
-body{
-    text-align: center;
-    background-color: black;
-    color: white;
-    
+body {
+  text-align: center;
+  background-color: black;
+  color: white;
+  background-image: url(/img/terran-victory.jpeg);
+}
+
+.table-container {
+  background-color: black;
+  border: solid;
+  border-color: #2f020b;
+  border-width: 4px;
+  border-radius: 10px;
+  padding: 10px;
+  width: 300px;
+  margin: auto;
+  display: grid;
+  /* margin-top: 75px; */
 }
 
 table {
-    display: inline;
-    margin: 0 auto;
-    margin-top: 50px;
-    opacity: 1;
+  display: block;
+  margin: 0 auto;
+  /* margin-top: 50px; */
+  opacity: 1;
 }
 
-.cell{
-    background-color: #555555;
-    width: 35px;
-    height: 35px;
-    opacity: 0.9;
-    color: #555555;
-    font-size: 20px;
-     
+.cell {
+  background-color: #555555;
+  width: 35px;
+  height: 35px;
+  opacity: 0.9;
+  color: #555555;
+  font-size: 20px;
 }
-.cell span{
-    visibility: hidden;
-}
-
-.cell:hover{
-    cursor: pointer;
-    background-color: #999999;
-    color: #999999;
+.cell span {
+  visibility: hidden;
 }
 
-#shown{
-    background: gray;
-    color: white;
-    visibility: visible;
-}
-#shown span{
-    background: gray;
-    color: white;
-    visibility: visible;
+.cell:hover {
+  cursor: pointer;
+  background-color: #999999;
+  color: #999999;
 }
 
-.smiley{
-    font-size: 2em;
-    background-color: #999999;
-    cursor: pointer;
+#shown {
+  background: gray;
+  color: white;
+  visibility: visible;
+}
+#shown span {
+  background: gray;
+  color: white;
+  visibility: visible;
+}
+
+.timer-smiley-score {
+  margin-top: 40px;
+}
+
+.smiley {
+  font-size: 2em;
+  cursor: pointer;
+  color: #5f9253;
+  background-color: black;
+  border: solid;
+  border-color: #2f020b;
+  border-width: 4px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: auto;
+}
+
+.difficulty {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.difficulty button {
+  width: 120px;
+  height: 40px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: solid;
+  border-color: #2f020b;
+  border-width: 4px;
+  background-color: black;
+  color: #5f9253;
+  cursor: pointer;
+}
+
+.difficulty button span {
+  color: #7ab765;
+}
+
+.score {
+  color: #5f9253;
+  background-color: black;
+  border: solid;
+  border-color: #2f020b;
+  border-width: 4px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 25px;
+}
+
+.score span {
+  color: #7ab765;
+}
+
+.timer {
+  color: #5f9253;
+  background-color: black;
+  border: solid;
+  border-color: #2f020b;
+  border-width: 4px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 25px;
+}
+
+.timer span {
+  color: #7ab765;
+}
+
+.lives {
+  display: inline;
+}
+
+.lives img {
+  width: 75px;
+  margin: auto;
+}
+
+.first-life {
+    float: left;
+    padding: 20px;
+    margin-left: 107px;
+}
+
+.second-life {  
+    float: left;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.third-life {
+    float: left;
+    padding: 20px;
+
 }

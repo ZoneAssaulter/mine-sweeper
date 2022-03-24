@@ -10,8 +10,8 @@ const WIN = '😎';
 
 var gIsGameOn = false;
 var gBoard;
-var gBoardSize = [8, 8];
-var gMineCount = 12;
+var gBoardSize = [8, 8]; //[4,4], [8,8], [12,12]
+var gMineCount = 12; // 2, 12, 30
 var gLives = 3;
 var gMarkedCount = 0;
 var gScore = 0;
@@ -19,13 +19,45 @@ var gScore = 0;
 function init() {
   gIsGameOn = true;
   gLives = 3;
+  gScore = 0;
+  gMarkedCount=0
+  updateScore();
   document.querySelector('.smiley').innerText = SMILEY; // function normalSmiley() isnt working but this does i dont know why O.o
-  var startingSound = document.querySelector('.vulture-bring-it-on')
-  startingSound.play()
+  var startingSound = document.querySelector('.vulture-bring-it-on');
+  startingSound.play();
   gBoard = buildBoard(gBoardSize);
   console.table(gBoard);
   renderBoard(gBoard);
 }
+
+function easyStart() {
+  playMenuSound();
+  gBoardSize = [4, 4];
+  gMineCount = 2;
+  document.querySelector('.table-container').style.width = '150px'
+  init();
+}
+
+function mediumStart() {
+  playMenuSound();
+  gBoardSize = [8, 8];
+  gMineCount = 12;
+  document.querySelector('.table-container').style.width = '300px'
+  init();
+}
+
+function hardStart() {
+  playMenuSound();
+  gBoardSize = [12, 12];
+  gMineCount = 30;
+  document.querySelector('.table-container').style.width = '450px'
+  init();
+}
+
+// function firstClick(location, elCell){
+//   gBoard = buildBoard(gBoardSize)
+//   renderBoard(gBoard)
+// }
 
 function buildBoard(size) {
   //step1: make empty board ✅
@@ -102,7 +134,7 @@ function clickCell(elCell, location) {
       gBoard[location.i][location.j].isShown = true;
       console.log(`lives: ${gLives}`);
       boomSmiley();
-      playMineHitSound()
+      playMineHitSound();
     } else {
       elCell.id = 'shown';
       gBoard[location.i][location.j].isShown = true;
