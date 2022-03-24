@@ -2,7 +2,7 @@ body {
   text-align: center;
   background-color: black;
   color: white;
-  background-image: url(/img/terran-victory.jpeg);
+  background-image: url(img/terran-victory.jpeg);
 }
 
 .table-container {
