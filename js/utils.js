@@ -32,13 +32,26 @@ function countNeighbors(cellI, cellJ, mat) {
       if (mat[i][j].isMine === true) neighborsCount++;
     }
   }
-//   console.log(`mat [${i}][${j}]=${neighborsCount}`);
+  //   console.log(`mat [${i}][${j}]=${neighborsCount}`);
   return neighborsCount;
 }
 
 function renderCell(location, value) {
-  
   var elCell = document.querySelector(`.cell${location.i}-${location.j}`);
-  elCell.innerHTML= value
+  elCell.innerHTML = value;
+}
+
+function playMineHitSound() {
+  var mineMoveSound = document.querySelector('.mine-move');
+  var mineHitSound = document.querySelector('.mine-hit');
+  var mineMoveCount = 0;
+  var mineMoveInterval = setInterval(() => {
+    mineMoveCount++;
+    mineMoveSound.play();
+    if (mineMoveCount === 3) {
+      clearInterval(mineMoveInterval);
+      mineHitSound.play();
+    }
+  }, 65);
 }
 

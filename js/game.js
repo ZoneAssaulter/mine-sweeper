@@ -20,6 +20,8 @@ function init() {
   gIsGameOn = true;
   gLives = 3;
   document.querySelector('.smiley').innerText = SMILEY; // function normalSmiley() isnt working but this does i dont know why O.o
+  var startingSound = document.querySelector('.vulture-bring-it-on')
+  startingSound.play()
   gBoard = buildBoard(gBoardSize);
   console.table(gBoard);
   renderBoard(gBoard);
@@ -100,6 +102,7 @@ function clickCell(elCell, location) {
       gBoard[location.i][location.j].isShown = true;
       console.log(`lives: ${gLives}`);
       boomSmiley();
+      playMineHitSound()
     } else {
       elCell.id = 'shown';
       gBoard[location.i][location.j].isShown = true;
@@ -112,7 +115,7 @@ function clickCell(elCell, location) {
     elBoard.addEventListener('mousedown', smileyMouseClick());
     // console.log(elCell);
     gScore += gBoard[location.i][location.j].minesAroundCount;
-    updateScore()
+    updateScore();
   } else if (gBoard[location.i][location.j].minesAroundCount === 0) {
     elBoard.addEventListener('mousedown', smileyMouseClick());
     expandShown(gBoard, elCell, location);
@@ -170,8 +173,7 @@ function victory() {
   victorySmiley();
 }
 
-function updateScore(){
-  var elScore = document.querySelector('.score')
-  elScore.innerText = `Score: ${gScore}`
+function updateScore() {
+  var elScore = document.querySelector('.score');
+  elScore.innerText = `Score: ${gScore}`;
 }
-
