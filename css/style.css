@@ -1,0 +1,49 @@
+body{
+    text-align: center;
+    background-color: black;
+    color: white;
+    
+}
+
+table {
+    display: inline;
+    margin: 0 auto;
+    margin-top: 50px;
+    opacity: 1;
+}
+
+.cell{
+    background-color: #555555;
+    width: 35px;
+    height: 35px;
+    opacity: 0.9;
+    color: #555555;
+    font-size: 20px;
+     
+}
+.cell span{
+    visibility: hidden;
+}
+
+.cell:hover{
+    cursor: pointer;
+    background-color: #999999;
+    color: #999999;
+}
+
+#shown{
+    background: gray;
+    color: white;
+    visibility: visible;
+}
+#shown span{
+    background: gray;
+    color: white;
+    visibility: visible;
+}
+
+.smiley{
+    font-size: 2em;
+    background-color: #999999;
+    cursor: pointer;
+}
